@@ -12,7 +12,10 @@
     "start": "node ./dist/src/index.js",
     "copyfiles": "copyfiles src/modules/auth/schema.graphql src/modules/users/schema.graphql src/public/* ./dist",
     "watch": "nodemon index.ts",
-    "dev": "npm run build && npx prisma migrate dev && npx prisma db seed && npm run watch"
+    "dev": "npm run build && npm run watch",
+    "add-migration": "npx prisma migrate dev",
+    "update-database": "npx prisma db push",
+    "seed-db": "npx prisma db seed"
   },
   "dependencies": {
     "@apollo/server-plugin-landing-page-graphql-playground": "^4.0.1",
