@@ -1,0 +1,10 @@
+type AuthResponse {
+  access_token: String!
+  user: User!
+}
+
+type Mutation {
+  login(email: EmailAddress!, password: String!): AuthResponse
+  sendRecovery(email: EmailAddress!): String
+  changePassword(token: String!, newPassword: String!): String
+}
