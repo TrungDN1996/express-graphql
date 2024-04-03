@@ -40,4 +40,4 @@ Thumbs.db
 
 .env
 docker_env.env
-*.db
+/db

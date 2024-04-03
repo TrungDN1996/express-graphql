@@ -14,7 +14,7 @@ services:
     networks:
       - main-network
     env_file:
-     - api/.env
+     - ./.env
 
 volumes:
   db:

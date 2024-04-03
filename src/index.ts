@@ -1,5 +1,5 @@
-import { config } from './src/core/config';
-import { createApp } from './app';
+import { config } from './app/core/config';
+import { createApp } from './app/app';
 
 (async () => {
   const port = config.Port;
