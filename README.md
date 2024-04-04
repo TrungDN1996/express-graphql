@@ -5,7 +5,7 @@ It is a User CRUD api on Express-JS, GraphQL and PostgreSQL(Prisma). You can:
 2. Authentication (passport)
 3. CRUD User.
 
-Access Apollo Server: http://localhost:<port>/graphql
+Access Apollo Server: http://localhost:3000/graphql
 
 ## Getting Started
 
