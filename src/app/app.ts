@@ -1,4 +1,3 @@
-import path from 'path';
 import express from 'express';
 import cors from 'cors';
 import {serveGraphql} from './server'
@@ -15,12 +14,18 @@ export const createApp = async() => {
   passport.use(JwtStrategy);
   passport.use(GQLLocalStrategy)
 
-  app.use('/images', express.static(path.join(__dirname, '/public')));
-
+  // Set default route
   app.get('/', (req: express.Request, res: express.Response) => {
     res.json({ status: 'API is running on /api' });
   });
 
+  // 500: Error reporing
+  app.use(function(err, req, res, next){
+    console.error(err.stack);
+    res.json(500, {ERROR: 'Internal server error.'} );
+  });
+
+  // Register Graphql ApolloServer
   await serveGraphql(app);
   return app
 };

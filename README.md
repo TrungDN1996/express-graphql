@@ -77,6 +77,13 @@ npm run build
 npm run start
 ```
 
+### Test
+Test on Postman
+![alt text](image.png)
+
+Test on Apollo Server
+![alt text](image-1.png)
+
 ## Stay in touch
 
 - Email - nguyentrung96dn@gmail.com

@@ -13,8 +13,8 @@ const service = new UserService();
 export class AuthService {
   constructor() {}
 
-  async getUser(args: LoginType, context: ResolverContext): Promise<user> {
-    const user = await service.findByEmail(args, context);
+  async getUser(parent: unknown, args: LoginType, context: ResolverContext): Promise<user> {
+    const user = await service.findByEmail(parent, args, context);
     if (!user) {
       throw new AuthenticationError ('invalid credentials');
     }
@@ -41,6 +41,7 @@ export class AuthService {
   }
 
   async changePassword(
+    parent: unknown,
     args: ChangePasswordType,
     context: ResolverContext): Promise<string> {
     try {
@@ -48,6 +49,7 @@ export class AuthService {
       const payloadId = payload.sub as string
 
       const user = await service.findOne(
+        parent,
         {
           id: payloadId
         },
@@ -60,6 +62,7 @@ export class AuthService {
       const hashpass = await hash(args.newPassword, 10);
 
       await service.update(
+        parent,
         {
           id: user.id,
           dto: {

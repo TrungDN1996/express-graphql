@@ -17,10 +17,11 @@ export async function login(
 
 
 export async function changePassword(
+  parent: unknown,
   args: ChangePasswordType,
   context: ResolverContext
 ): Promise<string> {
   const { token, newPassword } = args;
-  const response = await service.changePassword({token, newPassword}, context);
+  const response = await service.changePassword(parent, {token, newPassword}, context);
   return response
 }

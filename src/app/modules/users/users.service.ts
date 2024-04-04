@@ -11,7 +11,7 @@ export class UserService {
   constructor() {
   }
 
-  async findAll(args: FindOptions, context: ResolverContext): Promise<user[]> {
+  async findAll(parent: unknown, args: FindOptions, context: ResolverContext): Promise<user[]> {
     try {
       const users = await context.prisma.user.findMany({
         where: {
@@ -37,7 +37,7 @@ export class UserService {
     }
   }
 
-  async findOne(args: FindOneType, context: ResolverContext): Promise<any> {
+  async findOne(parent: unknown, args: FindOneType, context: ResolverContext): Promise<any> {
     try {
       const user = await context.prisma.user.findFirst(
         {
@@ -63,7 +63,7 @@ export class UserService {
     }
   }
 
-  async create (args: CreateUserDto, context: ResolverContext): Promise<user> {
+  async create (parent: unknown, args: CreateUserDto, context: ResolverContext): Promise<user> {
     try {
       const hashpass = await hash(args.dto.password, 10);
       const newUserData: Prisma.userCreateArgs['data'] = {
@@ -99,7 +99,7 @@ export class UserService {
     }
   }
 
-  async update(args: UpdateUSerDto, context: ResolverContext): Promise<user> {
+  async update(parent: unknown, args: UpdateUSerDto, context: ResolverContext): Promise<user> {
     try {
       const updateUserData: Prisma.userUpdateArgs["data"] = {
         name: args.dto?.name,
@@ -134,7 +134,7 @@ export class UserService {
     }
   }
 
-  async delete (args: FindOneType, context: ResolverContext): Promise<number> {
+  async delete (parent: unknown, args: FindOneType, context: ResolverContext): Promise<number> {
     try {
       const userFound = await context.prisma.user.findFirstOrThrow(
         {
@@ -156,7 +156,7 @@ export class UserService {
 
   }
 
-  async findByEmail(args: FindOneType, context: ResolverContext): Promise<any> {
+  async findByEmail(parent: unknown, args: FindOneType, context: ResolverContext): Promise<any> {
     const user = await context.prisma.user.findFirstOrThrow({
       where: {
         session: {

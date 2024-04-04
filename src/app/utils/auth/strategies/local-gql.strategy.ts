@@ -10,6 +10,7 @@ export const GQLLocalStrategy = new GraphQLLocalStrategy(
   async (email, password, done) => {
     try {
       const user = await service.getUser(
+        null,
         {
           email: email as string,
           password: password as string
