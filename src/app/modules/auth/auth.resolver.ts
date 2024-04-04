@@ -6,6 +6,7 @@ import { ChangePasswordType, LoginType } from './types/auth.types';
 const service = new AuthService();
 
 export async function login(
+  parent: unknown,
   args: LoginType,
   context: ResolverContext
 ): Promise<TokenUserDto> {

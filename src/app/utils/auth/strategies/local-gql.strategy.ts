@@ -1,6 +1,5 @@
 import { PrismaClient } from '@prisma/client';
 import { GraphQLLocalStrategy } from 'graphql-passport';
-
 import  { AuthService } from '../../../modules/auth/auth.service';
 
 const service = new AuthService();
