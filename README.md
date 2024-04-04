@@ -78,18 +78,19 @@ npm run start
 ```
 
 ### Test
-Test on Postman
+
+#### Test on Postman
 ![alt text](image.png)
 
-Test on Apollo Server
+#### Test on Apollo Server
 ![alt text](image-1.png)
 
-Run with the authorization Query
+#### Run with the authorization Query
   Step 1: Get access token
     ![alt text](image-3.png)
   Step 2: Set token on Headers with Authorization type 
     ![alt text](image-2.png)
-    
+
 ## Stay in touch
 
 - Email - nguyentrung96dn@gmail.com
