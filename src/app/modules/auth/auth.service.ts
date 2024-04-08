@@ -33,7 +33,9 @@ export class AuthService {
       sub: user.id,
       role: user.session.role.name
     }
-    const access_token = sign(payload, config.jwtSecret as Secret);
+    const access_token = sign(payload, config.jwtSecret as Secret, {
+      expiresIn: '3600s',
+    });
     return {
       user,
       access_token
